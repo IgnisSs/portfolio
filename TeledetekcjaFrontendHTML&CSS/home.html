@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Projekt - wykrywanie roślinności</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<style>
+footer {
+  text-align: center;
+  padding: 1px;
+  background-color: #466362;
+  color: #8896ab;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.button {
+  background-color: #c5d5e4; 
+  border: 2px solid #466362;
+  color: #466362;
+  padding: 1px 19px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  outline: 0;
+  
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  
+}
+.button:hover {
+  box-shadow: 0 8px 16px 0 #466362;,0 16px 20px 0 #466362; background-color:#89accc;
+}
+
+</style>
+</head>
+<body style="background-color: #938581; color: #466362 ;  border: 5px solid #8896ab; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px">
+  
+ <article style="border: 5px solid #91bbbf; margin-bottom:20px; border-top-right-radius: 10px; border-top-left-radius: 10px; background-color: #466362; padding-bottom:10px; border-top-right-radius: 4px; border-top-left-radius: 4px;"> 
+  <header>
+<center><a style="font-size: 50px; color: #c5d5e4; font-family: Helvetica"; >Rośliny na zdjęciach satelitarnych</a></center>
+<center><a style="font-size: 23px; color: #8896ab; font-family: Verdana;"; >Machine learning w teledetekcji</a></center>
+  </header>
+</article> 
+
+<center>    <div id = "map" style = "width:900px; height:475px; border: 5px solid #466362; border-top-right-radius: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; "></div>
+    <script>
+        var mapOptions = {center: [-10.55037,39.9992], zoom: 18};
+        var map = new L.map('map', mapOptions);
+        var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+        map.addLayer(layer);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+          maxZoom: 18,
+          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          id: 'mapbox/streets-v11',
+          tileSize: 512,
+          zoomOffset: -1
+        }).addTo(map);
+        
+    </script> </center>
+<center><input class="button" type="button" onclick="window.open('opis.html','MyWindow','width=800,height=500,toolbar=no,menubar=no,location=no,status=yes,scrollbars=no,resizable=no,left=368,top=182');return false;" value="Cel projektu"/></center>
+<article style="margin-top:10px;">
+<footer>
+  Autorzy:<br>
+  <a style="color: #c5d5e4; font-size:12px">Aleksandra Bodylska - <b>backend</b>, Katarzyna Jerzykowska - <b>frontend</b></a> <br>
+    Źródło mapy: <a style="color: #c5d5e4; font-size:12px">OpenStreetMap</a>
+ </center>
+</footer></article>
+</body>
+</html>
